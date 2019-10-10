@@ -1,10 +1,6 @@
 package com.asimqasimzade.revolutchallenge.core.data
 
-import com.asimqasimzade.revolutchallenge.core.data.model.CurrencyFlag
-import com.asimqasimzade.revolutchallenge.core.data.model.CurrencyModel
-import com.asimqasimzade.revolutchallenge.core.data.model.CurrencyName
-import com.asimqasimzade.revolutchallenge.core.data.model.RatesResponse
-import com.asimqasimzade.revoluttest.data.model.*
+import com.asimqasimzade.revolutchallenge.core.data.model.*
 
 class RatesResponseToRateModelListMapper {
     fun map(ratesResponse: RatesResponse): List<RateModel> {

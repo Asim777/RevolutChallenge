@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="viewmodel"
-            type="com.asimqasimzade.revolutchallenge.presentation.converter.ConverterViewModel" />
+            type="com.asimqasimzade.revolutchallenge.presentation.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

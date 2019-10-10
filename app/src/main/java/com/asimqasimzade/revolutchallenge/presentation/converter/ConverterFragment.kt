@@ -1,33 +1,43 @@
 package com.asimqasimzade.revolutchallenge.presentation.converter
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
-
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.asimqasimzade.revolutchallenge.R
+import com.asimqasimzade.revolutchallenge.databinding.FragmentConverterBinding
 import com.asimqasimzade.revolutchallenge.presentation.base.BaseFragment
-import kotlinx.android.synthetic.main.toolbar.*
+import kotlinx.android.synthetic.main.default_toolbar.view.toolbar
 
-class ConverterFragment : BaseFragment<ConverterViewModel, ViewDataBinding>() {
+class ConverterFragment : BaseFragment<ConverterViewModel, FragmentConverterBinding>() {
 
     override val bindingLayout = R.layout.fragment_converter
     override val viewModel: ConverterViewModel by lazy {
         ViewModelProviders.of(this, vmFactory).get(ConverterViewModel::class.java)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_converter, container, false)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        toolbar.title = getText(R.string.converter_fragment_title)
+        binding.toolbarContainer.toolbar.title = getText(R.string.converter_fragment_title)
+
+        setupInputListeners()
+        setupOutputListeners()
+
+        val ratesAdapter = RatesAdapter()
+        binding.ratesRecycler.layoutManager = LinearLayoutManager(requireActivity())
+        binding.ratesRecycler.adapter = ratesAdapter
+        /*ratesAdapter.setData(ratesData)*/
     }
+
+    private fun setupOutputListeners() {
+        viewModel.outputs.getRates().subscribe {
+
+        }
+    }
+
+    private fun setupInputListeners() {
+        viewModel.inputs
+    }
+
+
 }

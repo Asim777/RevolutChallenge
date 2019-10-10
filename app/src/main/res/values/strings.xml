@@ -3,4 +3,7 @@
 
     <!--Rates-->
     <string name="converter_fragment_title">Rates</string>
+    <string name="currency_flag_content_description">Currency Flag</string>
+    <string name="currency_name_content_description">Currency name</string>
+
 </resources>

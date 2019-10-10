@@ -9,7 +9,7 @@ class GetRatesUseCase @Inject constructor(
     private val ratesRepository: RatesRepository,
     private val ratesResponseToRateModelListMapper: RatesResponseToRateModelListMapper
 ) {
-    fun getRates(baseCurrencyName: CurrencyName) =
+    fun execute(baseCurrencyName: CurrencyName) =
         ratesRepository.getRates(baseCurrencyName).map {ratesResponse ->
             ratesResponseToRateModelListMapper.map(ratesResponse)
         }
